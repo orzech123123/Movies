@@ -10,14 +10,14 @@ namespace Movies.Services
 
         public static GenreCollection GetGenres()
         {
-            var response = RequestHelper.Get($"https://api.themoviedb.org/3/genre/movie/list?language=pl-PL&api_key={ApiKey}");
+            var response = RequestHelper.Get($"https://api.themoviedb.org/3/genre/movie/list?api_key={ApiKey}");
 
             return JsonConvert.DeserializeObject<GenreCollection>(response);
         }
 
         public static MovieCollection GetMovies(int genreId)
         {
-            var response = RequestHelper.Get($"https://api.themoviedb.org/3/discover/movie?with_genres={genreId}&sort_by=vote_average.asc&language=pl-PL&api_key={ApiKey}");
+            var response = RequestHelper.Get($"https://api.themoviedb.org/3/discover/movie?with_genres={genreId}&sort_by=vote_average.asc&api_key={ApiKey}");
 
             return JsonConvert.DeserializeObject<MovieCollection>(response);
         }
