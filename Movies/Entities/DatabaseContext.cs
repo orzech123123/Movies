@@ -12,7 +12,7 @@ namespace Movies.Entities
 
         public DatabaseContext() : base("name=DatabaseContext")
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<DatabaseContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<DatabaseContext>()); 
         }
     }
 }
