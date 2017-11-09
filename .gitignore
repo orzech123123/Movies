@@ -75,3 +75,4 @@ _[Ss]cripts
 *.dot[Cc]over
 /Movies/App_Data/*.mdf
 /Movies/App_Data/*.ldf
+/.vs/Movies/v15/sqlite3/storage.ide
