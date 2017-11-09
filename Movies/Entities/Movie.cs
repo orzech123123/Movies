@@ -13,6 +13,7 @@ namespace Movies.Entities
         public string Category { get; set; }
 
         [Required]
+        [Display(Name = "Production year")]
         public int ProductionYear { get; set; }
 
         public string Description { get; set; }
