@@ -29,15 +29,6 @@ textarea {
     margin-top: 20px
 }
 
-.movie-details-wrapper {
-    margin: 0 auto;
-}
-.movie-details-title-column {
-    float: left;
-    width: 20%;
-}
-.movie-details-content-column {
-    padding-top: 30px;
-    float: right;
-    width: 80%;
-}
+.filter {
+    margin-top: 20px;
+    margin-bottom: 20px;

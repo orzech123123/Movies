@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<p class="actions-bar">
+<div class="actions-bar">
     @Html.ActionLink("Back to List", "Index")
-</p>
+</div>
 
-<div class="movie-details-wrapper">
-    <div class="movie-details-title-column">
+<div class="row">
+    <div class="col-sm-3">
         <h2>@Model.Title</h2>
 
         @if (!string.IsNullOrWhiteSpace(Model.ImageUrl))
@@ -18,7 +18,7 @@
             <img style="width: 200px" src="@Model.ImageUrl" title="@Model.Title"/>
         }
     </div>
-    <div class="movie-details-content-column">
+    <div class="col-sm-9">
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Title)

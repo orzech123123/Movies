@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Movies.Entities.Movie>
+﻿@model Movies.ViewModels.MoviesIndexViewModel
 
 @{
     ViewBag.Title = "Movies";
@@ -7,25 +7,37 @@
 
 <h2>Movies</h2>
 
+@using (Html.BeginForm())
+{
+    <div class="row filter">
+        <div class="col-sm-6">
+            @Html.DropDownListFor(model => model.SelectedCategory, Model.AvailableCategories)
+        </div>
+        <div class="col-sm-6">
+            <button type="submit">Filter</button>
+        </div>
+    </div>
+}
+    
 <table class="table">
     <tr>
         <th>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Header.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.DisplayNameFor(model => model.Header.Category)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductionYear)
+            @Html.DisplayNameFor(model => model.Header.ProductionYear)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Header.Price)
         </th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.Movies) {
     <tr>
         <td>
             @if (!string.IsNullOrWhiteSpace(item.ImageUrl))
