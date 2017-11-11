@@ -6,7 +6,7 @@
 }
 
 <div class="actions-bar">
-    @Html.ActionLink("Back to List", "Index")
+    <a href="@Request.UrlReferrer.ToString()">Back to list</a>
 </div>
 
 <div class="row">

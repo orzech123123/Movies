@@ -1,0 +1,71 @@
+﻿@model Movies.ViewModels.MoviesIndexViewModel
+
+@using (Html.BeginForm())
+{
+    <div class="row filter">
+        <div class="col-sm-6">
+            @Html.DropDownListFor(model => model.SelectedCategory, Model.AvailableCategories)
+        </div>
+        <div class="col-sm-6">
+            <button type="submit">Filter</button>
+        </div>
+    </div>
+}
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header.ProductionYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Header.Price)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Movies)
+        {
+            <tr>
+                <td>
+                    @if (!string.IsNullOrWhiteSpace(item.ImageUrl))
+                    {
+                        <img style="width: 50px" src="@item.ImageUrl" title="@item.Title" />
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink(item.Title, "Details", "Movies", new { id = item.Id }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @if (item.ShoppingCarts.Any())
+                    {
+                        @Html.ActionLink("Remove from cart", "Remove", "ShoppingCart", new { id = item.Id }, null)
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Add to cart", "Add", "ShoppingCart", new { id = item.Id }, null)
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>

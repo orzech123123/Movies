@@ -15,6 +15,7 @@ namespace Movies
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            ShoppingCartSeedService.Seed();
             MovieSeedService.Seed();
         }
     }

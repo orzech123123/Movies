@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Movies.Entities
 {
@@ -22,5 +23,7 @@ namespace Movies.Entities
 
         [Required]
         public double Price { get; set; }
+
+        public virtual ICollection<ShoppingCart> ShoppingCarts { get; set; }
     }
 }
