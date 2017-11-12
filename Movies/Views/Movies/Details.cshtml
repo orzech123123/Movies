@@ -1,4 +1,5 @@
-﻿@model Movies.Entities.Movie
+﻿@using Movies.Helpers
+@model Movies.Entities.Movie
 
 @{
     ViewBag.Title = Model.Title;
@@ -6,7 +7,7 @@
 }
 
 <div class="actions-bar">
-    <a href="@Request.UrlReferrer.ToString()">Back to list</a>
+    <a href="@Url.ActionRedirectToReferrer(Request)">Back to list</a>
 </div>
 
 <div class="row">

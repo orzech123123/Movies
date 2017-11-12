@@ -161,6 +161,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\UrlHelper.cs" />
     <Compile Include="Migrations\201711111253164_InitMigration.cs" />
     <Compile Include="Migrations\201711111253164_InitMigration.Designer.cs">
       <DependentUpon>201711111253164_InitMigration.cs</DependentUpon>
