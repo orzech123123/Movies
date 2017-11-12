@@ -27,12 +27,12 @@ namespace Movies.Services
             db.SaveChanges();
         }
 
-        public static MoviesIndexViewModel GetAllByCategory(DatabaseContext db, string category)
+        public static ShoppingCartIndexViewModel GetAllByCategory(DatabaseContext db, string category)
         {
             var mainShoppingCart = db.ShoppingCarts.First();
             var movies = mainShoppingCart.Movies.AsQueryable();
                 
-            var viewModel = new MoviesIndexViewModel
+            var viewModel = new ShoppingCartIndexViewModel
             {
                 Movies = MovieHelper.GetMovies(movies, category),
                 AvailableCategories = MovieHelper.GetCategories(movies).ToList(),
